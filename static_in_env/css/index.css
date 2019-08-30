@@ -1,0 +1,89 @@
+body {
+    background-image: linear-gradient(to right, #9af9f9, #a1f9f9, #a7f9f9, #adf8f8, #b3f8f8, #baf8f8, #c1f8f8, #c8f8f8, #d1f8f8, #daf9f9, #e3f9f9, #ebf9f9);
+}
+h1 {
+    font-size: 120px;
+    color: black;
+}
+p {
+    font-size: 20px;
+    color: black;
+}
+
+.reload {
+    padding-bottom: 50px;
+}
+.filter_by {
+    padding-bottom: 50px;
+}
+.vacancy {
+    border: black 3px solid;
+    margin-bottom: 5px;
+    background-image: linear-gradient(to right, #bff2f4, #ccf3f4, #d8f4f5, #e4f5f5, #eff6f6);
+}
+#img-dou {
+    width: 120px;
+    height: 40px;
+}
+#img-djinni {
+    width: 200px;
+    height: 100px;
+}
+#img-rabota {
+    width: 200px;
+    height: 60px;
+}
+
+
+.primary-btn {
+    line-height: 38px;
+    padding: 0px 38px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.primary-btn {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: 0 30px;
+  line-height: 43px;
+  /*border-radius: 50px;*/
+  display: inline-block;
+  /*text-transform: uppercase;*/
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; }
+  .primary-btn:before {
+    position: absolute;
+    left: -145px;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: #000;
+    opacity: 0;
+    -webkit-transform: skew(40deg);
+    -moz-transform: skew(40deg);
+    -ms-transform: skew(40deg);
+    -o-transform: skew(40deg);
+    transform: skew(40deg);
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+  .primary-btn:hover {
+    color: #fff; }
+    .primary-btn:hover:before {
+      left: 180px;
+      opacity: .3; }
+
+.primary-btn {
+
+  background: -webkit-linear-gradient(90deg, #26E7EE 0%, #26E7EE 100%);
+  background: -moz-linear-gradient(90deg, #26E7EE 0%, #26E7EE 100%);
+  background: -o-linear-gradient(90deg, #26E7EE 0%, #26E7EE 100%);
+  background: linear-gradient(90deg, #26E7EE 0%, #26E7EE 100%); }

@@ -1,0 +1,84 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finder job</title>
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
+    <link rel="stylesheet" href="{%  static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.js' %}"></script>
+</head>
+<body>
+    <div class="container reload ">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">Job finder for Junior Python Developer</h1>
+                <div class="col-lg-12 justify-content-around d-flex" style="padding-top: 50px">
+                    {% if hide_me == True %}
+                    <p > Вы можете обновить список вакансий через {{ next_scrape }} часа.</p>
+                    {% else %}
+                         <p > Вы можете обновить список вакансий.</p>
+                        <form method="post" action="{% url  'scape' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn primary-btn">Обновить</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container filter_by">
+        <form method="get">
+            <div class="row">
+                <div class="col-lg-12 text-center d-flex">
+                    <div class="col-lg-6 text-center justify-content-around d-flex">
+                        {{ form_filter.ordering_by_site }}
+                        {{ form_filter.ordering_by_city }}
+                    </div>
+                    <button type="submit" class="btn primary-btn">Поиск</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="row">
+                {% if not vacancies %}
+                <div class="col-lg-12">
+                    <p class="text-center">По данным параметрам вакансий нет</p>
+                </div>
+                {% else %}
+                    {% for object in vacancies %}
+                        <div class="col-lg-12 d-flex vacancy">
+                            <div class="col-lg-9 text-center">
+                                <h4><a style="color: black" href="{{ object.url }}">{{ object.title }}</a></h4>
+                                <h5>{{ object.company }}</h5>
+                                <h5>{{ object.city }}</h5>
+                            </div>
+                            <div class="col-lg-3 text-right">
+                                {% if 'dou' in object.url %}
+                                    <img src="{% static 'img/dou-logo 2.png' %}" id="img-dou">
+                                {% elif 'djinni' in object.url %}
+                                    <img src="{% static 'img/djinni.jpg' %}" id="img-djinni">
+                                {% else %}
+                                    <img src="{% static 'img/rabotaua.png' %}" id="img-rabota">
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+        </div>
+    </div>
+<script type='text/javascript'>
+    $(document).ready(function() {
+      $('select').niceSelect();
+    });
+</script>
+
+</body>
+</html>
